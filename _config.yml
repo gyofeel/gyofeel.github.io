@@ -16,10 +16,7 @@
 title: gyofeel(Gyopil Seo)
 email: gyofeel318@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  gyofeel
-    Gyopil Seo
-    Front-end developer
-    Korea
+  gyofeel(Gyopil Seo) | Front-end developer | Korea
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
