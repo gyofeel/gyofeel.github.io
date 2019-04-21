@@ -1,7 +1,7 @@
 # main links
 main:
   - title: "home"
-    url: /home/
+    url: /
   - title: "Category"
     url: /categories/
   # - title: "About"
@@ -10,5 +10,5 @@ main:
   #   url: /year-archive/
   # - title: "Sample Collections"
   #   url: /collection-archive/
-  - title: "Sitemap"
-    url: /sitemap/
+  # - title: "Sitemap"
+  #   url: /sitemap/
