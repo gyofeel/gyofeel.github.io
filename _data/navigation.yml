@@ -1,7 +1,7 @@
 # main links
 main:
-  - title: "test"
-    url: https://gyofeel.github.io/
+  - title: "home"
+    url: /home/
   - title: "Category"
     url: /categories/
   # - title: "About"
