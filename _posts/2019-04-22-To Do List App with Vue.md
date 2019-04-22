@@ -1,10 +1,12 @@
 ---
 title: "To Do List App with Vue"
 date: 2019-04-22 10:10:00 -0000
-categories: [JS, OOP]
+categories: [Vue]
 ---
 
 ### Vue를 이용한 To Do List App 만들기
+
+---
 
 간단한 todolist를 제작하며 프레임워크에 대한 학습을 진행한다.
 
