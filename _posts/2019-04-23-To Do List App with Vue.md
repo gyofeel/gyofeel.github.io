@@ -29,4 +29,4 @@ categories: [Vue, Project]
    - Drag&Drop? 간단하게 적용할 수 있는 방법이 있다면 ... (구현 기간이 짧기 때문), 영역 간 아이템의 이동을 위하여
    - Drag&Drop이 어렵다고 판단 되면 이동을 위한 버튼 설계(화살표를 가진 버튼 등)
    - key event : input 태그를 이용해 To Do를 입력할 때, Enter 키 이용.
-   - mouse event : 완료 체크/취소를 제어하는 부분에 적용
+   - mouse event : 완료 체크/취소를 제어하는 부분에 적용.
