@@ -19,8 +19,8 @@ categories: [Vue, Project]
    - Cloud 환경에 배포
 
 2. 스케치(구상)
-   <img src="http://gyofeel.github.io/assets/_images/To_Do_List_App_with_Vue/01.jpeg"/>
-   <img src="http://gyofeel.github.io/assets/_images/To_Do_List_App_with_Vue/02.jpeg"/>
+   <img src="https://gyofeel.github.io/assets/_images/To_Do_List_App_with_Vue/01.jpeg"/>
+   <img src="https://gyofeel.github.io/assets/_images/To_Do_List_App_with_Vue/02.jpeg"/>
 
 3. 컴포넌트 구성
 
