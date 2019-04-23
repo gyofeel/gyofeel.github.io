@@ -13,7 +13,8 @@ categories: [Vue, Project]
 
    - 기능 : 내용 입력 / 완료 여부 / 순서 이동
    - Vue
-   - Node
+   - node
+   - npm, yarn
    - SPA(Single Page App)
    - Unit Test
    - Cloud 환경에 배포
@@ -24,7 +25,6 @@ categories: [Vue, Project]
    <img src="https://gyofeel.github.io/assets/images/To_Do_List_App_with_Vue/02.jpeg"/>
    <br>
 3. 컴포넌트 구성
-
 4. 간단한 UX/UI 설계
    - Drag&Drop? 간단하게 적용할 수 있는 방법이 있다면 ... (구현 기간이 짧기 때문), 영역 간 아이템의 이동을 위하여
    - Drag&Drop이 어렵다고 판단 되면 이동을 위한 버튼 설계(화살표를 가진 버튼 등)
