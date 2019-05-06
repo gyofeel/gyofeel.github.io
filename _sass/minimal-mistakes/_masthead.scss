@@ -60,12 +60,18 @@
   content: "";
   position: absolute;
   background-color: #00823c;
-  height: 100%;
+  height: 0%;
   width: 100%;
+  z-index: -1;
+  transition: 0.5s;
 }
 
 .site-title:hover {
   color: white;
+}
+
+.site-title::before:hover {
+  width: 100%;
 }
 
 .masthead__menu {
