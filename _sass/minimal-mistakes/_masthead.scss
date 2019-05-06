@@ -51,6 +51,21 @@
   align-self: center;
   font-weight: bold;
   z-index: 20;
+  color: #00823c;
+  transition: 0.5s;
+  position: relative
+}
+
+.site-title::before {
+  content: "";
+  position: absolute;
+  background-color: #00823c;
+  height: 100%;
+  width: 100%;
+}
+
+.site-title:hover {
+  color: white;
 }
 
 .masthead__menu {
