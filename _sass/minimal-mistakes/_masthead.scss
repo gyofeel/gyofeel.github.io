@@ -53,7 +53,7 @@
   z-index: 20;
   color: #00823c;
   transition: 0.5s;
-  position: relative
+  position: relative;
 }
 
 .site-title::before {
@@ -64,6 +64,7 @@
   width: 0%;
   z-index: -1;
   transition: 0.5s;
+  opacity: 0;
 }
 
 .site-title:hover {
@@ -71,6 +72,7 @@
 }
 
 .site-title::before:hover {
+  opacity: 1;
   width: 100%;
 }
 
