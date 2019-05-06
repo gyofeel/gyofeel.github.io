@@ -16,14 +16,16 @@ categories: [Vue, Project]
    - node
    - npm, yarn
    - SPA(Single Page App)
-   - Unit Test
+   - Unit Test - mocha
    - Cloud 환경에 배포
 
 2. 스케치(구상)
    <img src="https://gyofeel.github.io/assets/images/To_Do_List_App_with_Vue/01.jpeg"/>
    <br>
+
    <img src="https://gyofeel.github.io/assets/images/To_Do_List_App_with_Vue/02.jpeg"/>
    <br>
+
 3. 컴포넌트 구성 및 역할 정의
 
    - Header : 할 일 입력, 타이틀 로고 표시 및 nav bar 기능
