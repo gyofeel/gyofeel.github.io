@@ -107,7 +107,7 @@ analytics:
 # Site Author
 author:
   name: "Gyopil Seo"
-  avatar: # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar: "/assets/images/gyofeel_profile_2.jpg"
   bio: "Front-end Developer"
   location: "Seoul, South Korea"
   email:
