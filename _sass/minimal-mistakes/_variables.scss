@@ -9,11 +9,12 @@
 $doc-font-size: 13 !default;
 
 /* paragraph indention */
-$paragraph-indent: false !default; // true, false (default)
+$paragraph-indent: true !default; // true, false (default)
 $indent-var: 1.3em !default;
 
 /* system typefaces */
-$serif: Georgia,
+$serif: Arial,
+Georgia,
 Times,
 serif !default;
 $sans-serif: -apple-system,
