@@ -7,7 +7,7 @@ categories: [JS, Nodejs, Web]
 
 ---
 
-### 싱글 스레드 언어인 Javascript
+## 싱글 스레드 언어인 Javascript
 
  자바스크립트가 싱글 스레드 언어라는 것은 당신이 작성한 자바스크립트 코드가 단일한 스레드에서 실행된다는 의미이다. 단일한 스레드는 자바스크립트의 동작을 구성하는 구조 상의 명령문을 순차적으로 실행시키는 공간이 하나 밖에 없다는 의미이다. 결론부터 말하자면 자바스크립트는 '콜 스택'이라는 자료 구조를 이용해서 명령문을 실행하는데, 하나의 스레드에서 하나의 콜 스택으로 당신이 작성한 모든 명령문을 순차적으로 실행하게 되는 것이 자바스크립트가 싱글 스레드 언어라고 불리는 이유이다.
 
@@ -24,11 +24,11 @@ categories: [JS, Nodejs, Web]
 - Event Loop: 이벤트 루프, Call Stack과 Callback Queue를 관찰하며 Call Stack이 비어있을때 Callback Queue에서 callback을 Call Stack에 쌓는 역할을 하는 일종의 Observer.
 - Callback Queue(Task Queue): 콜백 큐, Web API에서 처리가 끝난 후 실행 되어야 하는 Callback(Task)이 순차적으로 쌓이는 자료 구조.
 
- 그림1. 의 구조는 싱글 스레드에서 이루어진다. 그런데 하나의 콜 스택에서 명령문이 순차적으로 실행된다 것은 지연(pending)을 일으키는 명령문이 있는 경우 프로그램 전체를 멈추게 한다는 의미이다. 그래서 자바스크립트는 지연을 일으키는 명령문들이 Web APIs에서 처리되도록 한다. 그때 명령문이 모두 처리된 후에 호출 될 함수를 하나 함께 넘기는 데 이를 콜백 함수(callback Function)라고 한다. Web APIs에서 처리된 명령문의 콜백 함수는 Callback Queue로 넘겨져 순서를 기다린다. 이때 이벤트 루프(Event Loop)는 실시간으로 두가지 일을 하는데, 하나는 콜 스택이 비워져있는 지 확인하는 것이고 다른 하나는 콜백 큐에 콜백이 있는 지이다. 이벤트 루프는 콜 스택이 비워져 있고 콜백 큐에 콜백이 있으면 그 콜백을 콜 스택으로 옮겨 실행되도록 한다.
+ 위 그림의 구조는 싱글 스레드에서 이루어진다. 그런데 하나의 콜 스택에서 명령문이 순차적으로 실행된다 것은 지연(pending)을 일으키는 명령문이 있는 경우 프로그램 전체를 멈추게 한다는 의미이다. 그래서 자바스크립트는 지연을 일으키는 명령문들이 Web APIs에서 처리되도록 한다. 그때 명령문이 모두 처리된 후에 호출 될 함수를 하나 함께 넘기는 데 이를 콜백 함수(callback Function)라고 한다. Web APIs에서 처리된 명령문의 콜백 함수는 Callback Queue로 넘겨져 순서를 기다린다. 이때 이벤트 루프(Event Loop)는 실시간으로 두가지 일을 하는데, 하나는 콜 스택이 비워져있는 지 확인하는 것이고 다른 하나는 콜백 큐에 콜백이 있는 지이다. 이벤트 루프는 콜 스택이 비워져 있고 콜백 큐에 콜백이 있으면 그 콜백을 콜 스택으로 옮겨 실행되도록 한다.
 
  하나의 스레드에 하나의 콜 스택에서 지연이 걸리는 작업이 프로그램 전체를 멈추게 하지 않도록 지연이 걸리는 작업을 Web APIs에서 처리하고 이벤트 루프라는 일종의 옵저버로 실행 순서를 제어한다. 이러한 형태는 싱글 스레드 언어인 자바스크립트의 비동기 프로그래밍과 관련된다.
 
-### setTimeout 0의 의미
+## setTimeout 0의 의미
 
     /** 일반적인 setTimeout의 형태 */
     let timeoutId = window.setTimeout(function [, delay, param1, param2, ...]);
@@ -43,7 +43,7 @@ categories: [JS, Nodejs, Web]
 
 위 코드를 실행하면 결과는 1 → 3 → 2 이다. 자바스크립트의 동작 원리를 다시 보면 setTimeout은 Web APIs에서 처리 되므로 콜백 함수는 0 밀리세컨드 간의 지연 후에 콜백 큐로 넘겨지게 된다. 그 사이 `console.log(3);`이 콜 스택에 먼저 쌓이게 되면서 이벤트 루프는 콜 스택이 비워질 때까지 기다렸다가 콜백 함수를 콜 스택에 넘길 수 있게 된다.
 
-### Web Worker
+## Web Worker
 
  
 
@@ -55,7 +55,7 @@ categories: [JS, Nodejs, Web]
 
 ---
 
-### nodejs를 자세히 들여다보기
+## nodejs를 자세히 들여다보기
 
  nodejs가 싱글스레드에서 돌아가는지에 앞서 nodejs이 어떻게 구성되어있는 지 알아보자.
 
@@ -107,7 +107,7 @@ categories: [JS, Nodejs, Web]
 
  
 
-### nodejs와 싱글 스레드
+## nodejs와 싱글 스레드
 
  결론부터 말하면 nodejs는 기본적으로 이벤트루프가 작동하는 싱글 스레드에서 실행된다. 하지만 예외적으로 Nodejs가 포함하는 일부 라이브러리는 싱글 스레드에서 실행되지 않는 경우가 있다. 참조한 자료에서는 nodejs의 내장 객체 중 하나인 `crypto` 를 예시로 들고 있다. crypto를 이용해 암호화할때 사용하는 `crypto.pbkdf2` 함수를 이용해 해시 알고리즘의 반복 횟수를 10만번 정도로 지정하면 보통 500 ~ 1000 밀리초 정도가 소요된다. 그래서 순차적으로 이  함수를 4번 호출 했다고 가정할 때, 각각 호출 되는 시간의 간격을 console에 찍어 보면 500 ~ 1000 밀리초 간격이 나타나야하지만 결과는 그렇지 않다. 아래는 그 결과이다.
 
@@ -127,8 +127,8 @@ categories: [JS, Nodejs, Web]
 
 ---
 
-- **Parallel programming in JavaScript using Web Workers** - [https://itnext.io/achieving-parallelism-in-javascript-using-web-workers-8f921f2d26db](https://itnext.io/achieving-parallelism-in-javascript-using-web-workers-8f921f2d26db)
-- **Node.Js Under the Hood** - [https://medium.com/better-programming/learn-node-js-under-the-hood-37966a20e127](https://medium.com/better-programming/learn-node-js-under-the-hood-37966a20e127)
-- **Is Node.js Really Single-Threaded?** - [https://medium.com/better-programming/is-node-js-really-single-threaded-7ea59bcc8d64](https://medium.com/better-programming/is-node-js-really-single-threaded-7ea59bcc8d64)
-- **What the heck is the event loop anyway?** - [https://www.youtube.com/watch?time_continue=1&v=8aGhZQkoFbQ&feature=emb_logo](https://www.youtube.com/watch?time_continue=1&v=8aGhZQkoFbQ&feature=emb_logo)
-- **자바스크립트의 동작원리: 엔진, 런타임, 호출 스택** - [https://joshua1988.github.io/web-development/translation/javascript/how-js-works-inside-engine/#자바스크립트-엔진](https://joshua1988.github.io/web-development/translation/javascript/how-js-works-inside-engine/#%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%97%94%EC%A7%84)
+- [Parallel programming in JavaScript using Web Workers](https://itnext.io/achieving-parallelism-in-javascript-using-web-workers-8f921f2d26db)
+- [Node.Js Under the Hood](https://medium.com/better-programming/learn-node-js-under-the-hood-37966a20e127)
+- [Is Node.js Really Single-Threaded?](https://medium.com/better-programming/is-node-js-really-single-threaded-7ea59bcc8d64)
+- [What the heck is the event loop anyway?](https://www.youtube.com/watch?time_continue=1&v=8aGhZQkoFbQ&feature=emb_logo)
+- [자바스크립트의 동작원리: 엔진, 런타임, 호출 스택](https://joshua1988.github.io/web-development/translation/javascript/how-js-works-inside-engine/#%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%97%94%EC%A7%84)
