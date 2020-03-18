@@ -114,7 +114,7 @@ categories: [JS, Nodejs, Web]
 
  자바스크립트는 싱글 스레드 언어이지만 Nodejs는 자바스크립트 만으로 이루어지지 않았다. 자바스크립트가 브라우저를 벗어나 작동할 수 있게 하기 위해 libuv 라이브러리를 이용하게 되었고, 자연스럽게 C++ 언어로 이루어진 이 라이브러리는 OS 단의 작업을 수행하여 스레드의 개수를 느릴 수 있었다. Nodejs는 기본적으로 싱글스레드로 작동하지만 일부 모듈은 멀티 스레드로 작동한다고 볼 수 있다.
 
-# 3. Reference
+# Reference
 
 
 - [Parallel programming in JavaScript using Web Workers](https://itnext.io/achieving-parallelism-in-javascript-using-web-workers-8f921f2d26db)
