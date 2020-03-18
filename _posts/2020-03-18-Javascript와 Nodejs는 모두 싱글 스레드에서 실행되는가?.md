@@ -109,7 +109,7 @@ categories: [JS, Nodejs, Web]
 
  함수 호출 간의 시간 간격이 10 밀리초 이하인 것을 알 수 있다. 어떻게 가능 한 것일까? Nodejs의 구성을 다시 생각해보면 Nodejs는 네트워크와 관련된 기능과 OS 관련 작업을 처리하는 libuv 라이브러리를 사용해 JS코드로부터 컨버팅 된 C++ 코드를 실행한다. 그런데, libuv는 OS 관련 처리를 수행하기 위해 4개의 스레드 풀을 세팅한다. 싱글 스레드 언어인 자바스크립트는 할 수 없지만 libuv의 C++ 코드로는 OS 스레드 스케줄러에 관여하여 멀티 스레드로 Nodejs가 실행될 수 있는 환경을 만들 수 있는 것이다. 아래는 이에 대한 내용을 다이어그램으로 간략히 보여준다.
 
-![https://miro.medium.com/max/427/1*OWlBzRwRk3lC_ikVErv4cw.png](https://miro.medium.com/max/427/1*OWlBzRwRk3lC_ikVErv4cw.png)
+<img src="https://miro.medium.com/max/427/1*OWlBzRwRk3lC_ikVErv4cw.png"/>
 <figcaption>그림 5. Nodejs 애플리케이션에서  pbkdf2 모듈이 작동되는 흐름</figcaption>
 
  자바스크립트는 싱글 스레드 언어이지만 Nodejs는 자바스크립트 만으로 이루어지지 않았다. 자바스크립트가 브라우저를 벗어나 작동할 수 있게 하기 위해 libuv 라이브러리를 이용하게 되었고, 자연스럽게 C++ 언어로 이루어진 이 라이브러리는 OS 단의 작업을 수행하여 스레드의 개수를 느릴 수 있었다. Nodejs는 기본적으로 싱글스레드로 작동하지만 일부 모듈은 멀티 스레드로 작동한다고 볼 수 있다.
