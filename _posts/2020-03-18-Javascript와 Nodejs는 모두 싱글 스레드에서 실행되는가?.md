@@ -65,8 +65,7 @@ categories: [JS, Nodejs, Web]
 
  
 
-[https://miro.medium.com/max/380/0*rBydgpa9yBemQswc](https://miro.medium.com/max/380/0*rBydgpa9yBemQswc)
-
+<img src="https://miro.medium.com/max/380/0*rBydgpa9yBemQswc"/>
 그림2. Nodejs 애플리케이션의 세가지 영역 - language
 
  Nodejs 애플리케이션은 세가지 영역으로 되어있다.
@@ -95,8 +94,7 @@ categories: [JS, Nodejs, Web]
 
  
 
-[https://miro.medium.com/max/352/0*aToI5oI5HYZLQ172](https://miro.medium.com/max/352/0*aToI5oI5HYZLQ172)
-
+<img src="https://miro.medium.com/max/352/0*aToI5oI5HYZLQ172"/>
 그림 3. Node 애플리케이션 내부에서 어떤 일이 일어나는가?
 
  우리가 작성한 자바스크립트 코드는 Nodejs의 lib 폴더 하위의 자바스크립트 부에서 실행된다. `Process.binding` 은 C++와 JS을 연결하는 역할을 수행한다. V8은 JS 코드를 C++ 코드로 트랜스파일링하는 작업을 수행하고 Nodejs의 src 폴더 하위의 C++ 부에서 V8로부터 컨버팅 된 코드를 libuv 라이브러리를 이용해 실행한다.
@@ -107,14 +105,12 @@ categories: [JS, Nodejs, Web]
 
  결론부터 말하면 nodejs는 기본적으로 이벤트루프가 작동하는 싱글 스레드에서 실행된다. 하지만 예외적으로 Nodejs가 포함하는 일부 라이브러리는 싱글 스레드에서 실행되지 않는 경우가 있다. 참조한 자료에서는 nodejs의 내장 객체 중 하나인 `crypto` 를 예시로 들고 있다. crypto를 이용해 암호화할때 사용하는 `crypto.pbkdf2` 함수를 이용해 해시 알고리즘의 반복 횟수를 10만번 정도로 지정하면 보통 500 ~ 1000 밀리초 정도가 소요된다. 그래서 순차적으로 이  함수를 4번 호출 했다고 가정할 때, 각각 호출 되는 시간의 간격을 console에 찍어 보면 500 ~ 1000 밀리초 간격이 나타나야하지만 결과는 그렇지 않다. 아래는 그 결과이다.
 
-![https://miro.medium.com/max/558/1*GOXPsN29oco0TCgncXFVkg.png](https://miro.medium.com/max/558/1*GOXPsN29oco0TCgncXFVkg.png)
-
+<img src="https://miro.medium.com/max/558/1*GOXPsN29oco0TCgncXFVkg.png"/>
 그림 4. crypto.pbkdf2를 동기적으로 4회 호출했을때 소요된 시간 로그
 
  함수 호출 간의 시간 간격이 10 밀리초 이하인 것을 알 수 있다. 어떻게 가능 한 것일까? Nodejs의 구성을 다시 생각해보면 Nodejs는 네트워크와 관련된 기능과 OS 관련 작업을 처리하는 libuv 라이브러리를 사용해 JS코드로부터 컨버팅 된 C++ 코드를 실행한다. 그런데, libuv는 OS 관련 처리를 수행하기 위해 4개의 스레드 풀을 세팅한다. 싱글 스레드 언어인 자바스크립트는 할 수 없지만 libuv의 C++ 코드로는 OS 스레드 스케줄러에 관여하여 멀티 스레드로 Nodejs가 실행될 수 있는 환경을 만들 수 있는 것이다. 아래는 이에 대한 내용을 다이어그램으로 간략히 보여준다.
 
 ![https://miro.medium.com/max/427/1*OWlBzRwRk3lC_ikVErv4cw.png](https://miro.medium.com/max/427/1*OWlBzRwRk3lC_ikVErv4cw.png)
-
 그림 5. Nodejs 애플리케이션에서  pbkdf2 모듈이 작동되는 흐름
 
  자바스크립트는 싱글 스레드 언어이지만 Nodejs는 자바스크립트 만으로 이루어지지 않았다. 자바스크립트가 브라우저를 벗어나 작동할 수 있게 하기 위해 libuv 라이브러리를 이용하게 되었고, 자연스럽게 C++ 언어로 이루어진 이 라이브러리는 OS 단의 작업을 수행하여 스레드의 개수를 느릴 수 있었다. Nodejs는 기본적으로 싱글스레드로 작동하지만 일부 모듈은 멀티 스레드로 작동한다고 볼 수 있다.
