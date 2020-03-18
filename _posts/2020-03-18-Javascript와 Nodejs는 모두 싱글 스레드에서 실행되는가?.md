@@ -14,7 +14,7 @@ categories: [JS, Nodejs, Web]
  자바스크립트의 동작 원리에 대해서 알아보자.
 
 ![https://joshua1988.github.io/images/posts/web/translation/how-js-works/js-engine-runtime.png](https://joshua1988.github.io/images/posts/web/translation/how-js-works/js-engine-runtime.png)
-<figcation>그림1. 자바스크립트의 동작 원리</figcaption>
+<figcaption>그림1. 자바스크립트의 동작 원리</figcaption>
 
 - Call Stack: 콜 스택. 명령문이 쌓이며 하나씩 순차적으로 명령문을 실행하며 해당 명령문을 제거하는 자료 구조.
 - Web APIs: 자바스크립트 혹은 더 넓은 범위로 웹 관련 기술을 지원하는 인터페이스의 모음.
