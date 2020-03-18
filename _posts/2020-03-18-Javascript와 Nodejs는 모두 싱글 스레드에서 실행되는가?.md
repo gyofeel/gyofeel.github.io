@@ -1,13 +1,11 @@
 ---
-title: "Javascript와 Nodejs는 모두 싱글 스레드에서 실행되는가?"
+title: "Javascript와 Nodejs, 그리고 싱글 스레드"
 categories: [JS, Nodejs, Web]
 ---
 
-# 싱글 스레드와 JS
+# 1. 싱글 스레드와 JS
 
----
-
-## 싱글 스레드 언어인 Javascript
+## A. 싱글 스레드 언어인 Javascript
 
  자바스크립트가 싱글 스레드 언어라는 것은 당신이 작성한 자바스크립트 코드가 단일한 스레드에서 실행된다는 의미이다. 단일한 스레드는 자바스크립트의 동작을 구성하는 구조 상의 명령문을 순차적으로 실행시키는 공간이 하나 밖에 없다는 의미이다. 결론부터 말하자면 자바스크립트는 '콜 스택'이라는 자료 구조를 이용해서 명령문을 실행하는데, 하나의 스레드에서 하나의 콜 스택으로 당신이 작성한 모든 명령문을 순차적으로 실행하게 되는 것이 자바스크립트가 싱글 스레드 언어라고 불리는 이유이다.
 
@@ -28,7 +26,7 @@ categories: [JS, Nodejs, Web]
 
  하나의 스레드에 하나의 콜 스택에서 지연이 걸리는 작업이 프로그램 전체를 멈추게 하지 않도록 지연이 걸리는 작업을 Web APIs에서 처리하고 이벤트 루프라는 일종의 옵저버로 실행 순서를 제어한다. 이러한 형태는 싱글 스레드 언어인 자바스크립트의 비동기 프로그래밍과 관련된다.
 
-## setTimeout 0의 의미
+## B. setTimeout 0의 의미
 
     /** 일반적인 setTimeout의 형태 */
     let timeoutId = window.setTimeout(function [, delay, param1, param2, ...]);
@@ -43,7 +41,7 @@ categories: [JS, Nodejs, Web]
 
 위 코드를 실행하면 결과는 1 → 3 → 2 이다. 자바스크립트의 동작 원리를 다시 보면 setTimeout은 Web APIs에서 처리 되므로 콜백 함수는 0 밀리세컨드 간의 지연 후에 콜백 큐로 넘겨지게 된다. 그 사이 `console.log(3);`이 콜 스택에 먼저 쌓이게 되면서 이벤트 루프는 콜 스택이 비워질 때까지 기다렸다가 콜백 함수를 콜 스택에 넘길 수 있게 된다.
 
-## Web Worker
+## C. Web Worker
 
  
 
@@ -51,11 +49,9 @@ categories: [JS, Nodejs, Web]
 
  웹 워커(Web Worker)는 Mozilla 재단과 구글이 협력해 만든 새로운 Web API이다. 브라우저는 탭 마다 하나의 스레드를 생성한다. 자바스크립트 프로그램은 이 메인 스레드(싱글 스레드)에서 작동하게 되는데, 웹 워커는 이 메인 스레드와는 별개로 브라우저 단의 새로운 스레드에서 실행된다. 그리고 메인 스레드와 웹 워커가 돌아가는 스레드는 서로 이벤트를 발생 시켜 커뮤니케이션한다. 웹 워커를 통해서 자바스크립트 개발자는 지연이 걸리는 다양한 작업을  메인 스레드의 동작과 별개로 실행할 수 있게 되었다.
 
-# 그러면, nodejs도 싱글스레드인가?
+# 2. 그러면, nodejs도 싱글스레드인가?
 
----
-
-## nodejs를 자세히 들여다보기
+## A. nodejs를 자세히 들여다보기
 
  nodejs가 싱글스레드에서 돌아가는지에 앞서 nodejs이 어떻게 구성되어있는 지 알아보자.
 
@@ -123,9 +119,8 @@ categories: [JS, Nodejs, Web]
 
  자바스크립트는 싱글 스레드 언어이지만 Nodejs는 자바스크립트 만으로 이루어지지 않았다. 자바스크립트가 브라우저를 벗어나 작동할 수 있게 하기 위해 libuv 라이브러리를 이용하게 되었고, 자연스럽게 C++ 언어로 이루어진 이 라이브러리는 OS 단의 작업을 수행하여 스레드의 개수를 느릴 수 있었다. Nodejs는 기본적으로 싱글스레드로 작동하지만 일부 모듈은 멀티 스레드로 작동한다고 볼 수 있다.
 
-# Reference
+# 3. Reference
 
----
 
 - [Parallel programming in JavaScript using Web Workers](https://itnext.io/achieving-parallelism-in-javascript-using-web-workers-8f921f2d26db)
 - [Node.Js Under the Hood](https://medium.com/better-programming/learn-node-js-under-the-hood-37966a20e127)
